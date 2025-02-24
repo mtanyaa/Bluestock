@@ -1,0 +1,151 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Light background for the page */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #2980b9; /* Blue header */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Company info section */
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+section h2 {
+    color: #2980b9; /* Blue color for headings */
+    font-size: 2em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Links styling */
+a {
+    color: #3498db; /* Light blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Table styling for financial data */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #2980b9;
+    color: white;
+    font-size: 1.2em;
+}
+
+td {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1em;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+tr:hover td {
+    background-color: #d0e4f4; /* Light blue highlight on hover */
+}
+
+/* Logo styling */
+img {
+    width: 150px;
+    height: auto;
+    margin: 20px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer styling */
+footer {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.9em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    img {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+
+    table {
+        font-size: 0.85em;
+    }
+
+    img {
+        width: 100px;
+    }
+}
