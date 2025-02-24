@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit & Loss Summary (Last 13 Years)</title>
+    <link rel="stylesheet" href="pandl.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Profit & Loss (Last 13 Years)</h1>
+    
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Sales</th>
+                        <th>Expenses</th>
+                        <th>Operating Profit</th>
+                        <th>OPM %</th>
+                        <th>Other Income</th>
+                        <th>Interest</th>
+                        <th>Depreciation</th>
+                        <th>Profit Before Tax</th>
+                        <th>Tax %</th>
+                        <th>Net Profit</th>
+                        <th>EPS (Rs)</th>
+                        <th>Dividend Payout %</th>
+                    </tr>
+
+                    <!-- the given two are just examples -->
+                    <tr>
+                        <td>2022</td>
+                        <td>9,000,000</td>
+                        <td>6,500,000</td>
+                        <td>2,500,000</td>
+                        <td>28%</td>
+                        <td>400,000</td>
+                        <td>180,000</td>
+                        <td>280,000</td>
+                        <td>2,440,000</td>
+                        <td>24%</td>
+                        <td>1,854,400</td>
+                        <td>37</td>
+                        <td>18%</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>9,000,000</td>
+                        <td>6,500,000</td>
+                        <td>2,500,000</td>
+                        <td>28%</td>
+                        <td>400,000</td>
+                        <td>180,000</td>
+                        <td>280,000</td>
+                        <td>2,440,000</td>
+                        <td>24%</td>
+                        <td>1,854,400</td>
+                        <td>37</td>
+                        <td>18%</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>9,000,000</td>
+                        <td>6,500,000</td>
+                        <td>2,500,000</td>
+                        <td>28%</td>
+                        <td>400,000</td>
+                        <td>180,000</td>
+                        <td>280,000</td>
+                        <td>2,440,000</td>
+                        <td>24%</td>
+                        <td>1,854,400</td>
+                        <td>37</td>
+                        <td>18%</td>
+                    </tr>
+                    
+                </thead>
+                <tbody id="profitLossData">
+                    <!-- Dynamic rows will be inserted here -->
+                </tbody>
+            </table>
+            <div class="analysis">
+                <h1>ANALYSIS</h1>
+                <div class="value">
+                    <div class="value-item">
+                        <div class="value-item-heading">
+                            <h9>COMPOUNDED SALES GROWTH</h9>
+                        </div>
+                        <div class="value-item-rate" id="salesGrowth">
+                            <!-- Dynamic values will be inserted here -->
+                             <!-- This is just for example -->
+                            <p>10 Years: 11%</p>
+                            <p>5 Years:  10%</p>
+                            <p>3 Years:  14%</p>
+                            <p>TTM :      5%</p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-item-heading">
+                            <h9>COMPOUNDED PROFIT GROWTH</h9>
+                        </div>
+                        <div class="value-item-rate" id="profitGrowth">
+                            <!-- Dynamic values will be inserted here -->
+                             
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-item-heading">
+                            <h9>STOCK PRICE CAGR</h9>
+                        </div>
+                        <div class="value-item-rate" id="stockPriceCAGR">
+                            <!-- Dynamic values will be inserted here -->
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-item-heading">
+                            <h9>RETURN ON EQUITY</h9>
+                        </div>
+                        <div class="value-item-rate" id="returnOnEquity">
+                            <!-- Dynamic values will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="footer">
+                &copy; 2025 Financial Analytics. All Rights Reserved.
+            </div>
+        </div>
+    </div>  
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('https://api.example.com/financialData'); // Replace with actual API endpoint
+                const data = await response.json();
+                const tableBody = document.getElementById('profitLossData');
+                data.profitLoss.forEach(row => {
+                    const tableRow = `
+                        <tr>
+                            <td>${row.year}</td>
+                            <td>${row.sales}</td>
+                            <td>${row.expenses}</td>
+                            <td>${row.operatingProfit}</td>
+                            <td>${row.opmPercentage}</td>
+                            <td>${row.otherIncome}</td>
+                            <td>${row.interest}</td>
+                            <td>${row.depreciation}</td>
+                            <td>${row.profitBeforeTax}</td>
+                            <td>${row.taxPercentage}</td>
+                            <td>${row.netProfit}</td>
+                            <td>${row.eps}</td>
+                            <td>${row.dividendPayoutPercentage}</td>
+                        </tr>`;
+                    tableBody.innerHTML += tableRow;
+                });
+
+                document.getElementById('salesGrowth').innerHTML = `
+                    <p>10 Years: ${data.analysis.salesGrowth.tenYears}%</p>
+                    <p>5 Years: ${data.analysis.salesGrowth.fiveYears}%</p>
+                    <p>3 Years: ${data.analysis.salesGrowth.threeYears}%</p>
+                    <p>TTM: ${data.analysis.salesGrowth.ttm}%</p>
+                `;
+
+                document.getElementById('profitGrowth').innerHTML = `
+                    <p>10 Years: ${data.analysis.profitGrowth.tenYears}%</p>
+                    <p>5 Years: ${data.analysis.profitGrowth.fiveYears}%</p>
+                    <p>3 Years: ${data.analysis.profitGrowth.threeYears}%</p>
+                    <p>TTM: ${data.analysis.profitGrowth.ttm}%</p>
+                `;
+
+                document.getElementById('stockPriceCAGR').innerHTML = `
+                    <p>10 Years: ${data.analysis.stockPriceCAGR.tenYears}%</p>
+                    <p>5 Years: ${data.analysis.stockPriceCAGR.fiveYears}%</p>
+                    <p>3 Years: ${data.analysis.stockPriceCAGR.threeYears}%</p>
+                    <p>TTM: ${data.analysis.stockPriceCAGR.ttm}%</p>
+                `;
+
+                document.getElementById('returnOnEquity').innerHTML = `
+                    <p>10 Years: ${data.analysis.returnOnEquity.tenYears}%</p>
+                    <p>5 Years: ${data.analysis.returnOnEquity.fiveYears}%</p>
+                    <p>3 Years: ${data.analysis.returnOnEquity.threeYears}%</p>
+                    <p>TTM: ${data.analysis.returnOnEquity.ttm}%</p>
+                `;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        window.onload = fetchData;
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+body {
+    margin: 5px;
+    padding: 0; 
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9; 
+}
+
+.homeImg img {
+    height: 500px;
+    width: 100vw;
+    object-fit: cover; 
+    
+}
+
+.homeText h2 {
+    font-size: 40px;
+    font-weight: 600; 
+    text-align: center;
+    color: #020202; 
+    margin-top: 20px; 
+}
+
+.investio {
+    background-color: #6e34f6;
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold; 
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.homeSearchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; 
+}
+
+.homeSearchBar input {
+    height: 45px;
+    width: 500px;
+    text-align: center;
+    border: 2px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease; 
+}
+
+.homeSearchBar input:focus {
+    border-color: #6e34f6;
+    box-shadow: 0 8px 25px rgba(110, 52, 246, 0.3);
+}
+
+.homeSearchBar input::placeholder {
+    font-weight: bold;
+    color: black;
+    font-size: 15px;
+}
+
+.companyName {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px; 
+    margin: 20px;
+    padding: 10px; 
+}
+
+.company-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px;
+    color: #757474;
+    font-weight: 550;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.company-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(110, 52, 246, 0.3); 
+    border-color: #6e34f6;
+    cursor: pointer; 
+}
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Links</title>
+    <link rel="stylesheet" href="document.css">
+    
+    <script>
+        async function fetchDocuments() {
+            try {
+                // Example response for demonstration purposes
+                const data = {
+                    annualReport: 'https://nseindia.com/annual-report.pdf',
+                    announcements: 'https://nseindia.com/announcements.pdf'
+                };
+
+                const documentsContainer = document.querySelector('.documents');
+                documentsContainer.innerHTML = ''; 
+
+                const items = [
+                    { title: 'Annual Report', link: data.annualReport },
+                    { title: 'Announcements', link: data.announcements }
+                ];
+
+                items.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'doc-item';
+
+                    const title = document.createElement('h2');
+                    title.textContent = item.title;
+
+                    const link = document.createElement('a');
+                    link.href = item.link;
+                    link.target = '_blank';
+                    link.textContent = 'View PDF';
+
+                    div.appendChild(title);
+                    div.appendChild(link);
+                    documentsContainer.appendChild(div);
+                });
+            } catch (error) {
+                console.error('Error fetching document links:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchDocuments);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Documents</h1>
+        <div class="documents">
+            
+        </div>
+        <div class="footer">
+            &copy; 2025 Financial Analytics. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>
